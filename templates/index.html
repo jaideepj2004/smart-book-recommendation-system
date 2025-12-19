@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Book Recommendation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Smart Book Recommendation System</h1>
+            <p>Get personalized book recommendations based on your preferences</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Preference Selection -->
+            <div class="preference-section">
+                <h2>Tell us what you like</h2>
+                <div class="preference-form">
+                    <div class="form-group">
+                        <label>Favorite Genre</label>
+                        <select id="genreSelect">
+                            <option value="">Select a genre...</option>
+                            <option value="fiction">Fiction</option>
+                            <option value="mystery">Mystery & Thriller</option>
+                            <option value="fantasy">Fantasy</option>
+                            <option value="scifi">Science Fiction</option>
+                            <option value="romance">Romance</option>
+                            <option value="biography">Biography</option>
+                            <option value="selfhelp">Self-Help</option>
+                            <option value="history">History</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Reading Mood</label>
+                        <select id="moodSelect">
+                            <option value="">Select mood...</option>
+                            <option value="inspiring">Inspiring & Uplifting</option>
+                            <option value="thrilling">Thrilling & Suspenseful</option>
+                            <option value="emotional">Emotional & Deep</option>
+                            <option value="lighthearted">Light & Fun</option>
+                            <option value="thoughtprovoking">Thought-Provoking</option>
+                            <option value="adventurous">Adventurous</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Book Length Preference</label>
+                        <select id="lengthSelect">
+                            <option value="">Any length</option>
+                            <option value="short">Short (< 300 pages)</option>
+                            <option value="medium">Medium (300-500 pages)</option>
+                            <option value="long">Long (> 500 pages)</option>
+                        </select>
+                    </div>
+
+                    <button id="getRecommendationsBtn" class="primary-btn">Get Recommendations</button>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Finding perfect books for you...</p>
+            </div>
+
+            <!-- Error Message -->
+            <div id="error" class="error" style="display: none;"></div>
+
+            <!-- Recommendations Display -->
+            <div id="recommendationsSection" class="recommendations-section" style="display: none;">
+                <h2>📖 Recommended Books For You</h2>
+                <div id="recommendationsGrid" class="books-grid"></div>
+            </div>
+
+            <!-- All Books Section -->
+            <div class="all-books-section">
+                <h2>Browse All Books</h2>
+                <div class="filter-bar">
+                    <input type="text" id="searchInput" placeholder="Search by title or author...">
+                    <select id="filterGenre">
+                        <option value="all">All Genres</option>
+                        <option value="fiction">Fiction</option>
+                        <option value="mystery">Mystery & Thriller</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="scifi">Science Fiction</option>
+                        <option value="romance">Romance</option>
+                        <option value="biography">Biography</option>
+                        <option value="selfhelp">Self-Help</option>
+                        <option value="history">History</option>
+                    </select>
+                </div>
+                <div id="allBooksGrid" class="books-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
